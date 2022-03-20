@@ -1,0 +1,10 @@
+@use '../abstracts/mixins';
+
+.button{
+  @include mixins.button(){
+    background-color: orange;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+  }
+}

@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+$-button-space-metric: 20px;
+
+$directions: ('top','right','bottom','left');
+
+$button-parameters: (
+  'font-family': sans-serif,
+  'font-size': inherit,
+  'color': black,
+  'background-color': white,
+);
+@each $direction in $directions{
+  $button-parameters: map.set($button-parameters,
+    'padding-'#{$direction},
+    $-button-space-metric
+  );
+  $button-parameters: map.set($button-parameters,
+    'margin-'#{$direction},
+    $-button-space-metric
+  );
+}

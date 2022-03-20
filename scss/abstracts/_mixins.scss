@@ -1,0 +1,17 @@
+@use 'functions' as f;
+@use 'variables' as v;
+
+@mixin button($parameters:v.$button-parameters) {
+  //@each $property,$value in $parameters{
+  //  #{$property}: $value;
+  //}
+  font-family: f.retrieve($parameters,'font-family');
+  font-size: f.retrieve($parameters,'font-size');
+  color: f.retrieve($parameters,'color');
+  background-color: f.retrieve($parameters,'background-color');
+  @each $direction in v.$directions{
+    padding-#{$direction}: f.retrieve($parameters,'padding-'#{$direction});
+    margin-#{$direction}: f.retrieve($parameters,'margin-'#{$direction});
+  }
+  @content;
+}
