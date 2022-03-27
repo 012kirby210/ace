@@ -1,0 +1,128 @@
+@use '../abstracts' as a;
+
+$-space-metric: 20px;
+
+@each $name,$values in a.$ratios{
+  .margin-#{$name}{
+    @include a.margin-ratio($values,$-space-metric);
+  }
+}
+
+@each $size-name,$size-value in a.$space-semantics{
+  @each $direction in a.$directions{
+    .m-#{$direction}-#{$size-name}{
+      margin-#{$direction}: $size-value;
+    }
+  }
+  .m-x-#{$size-name}{
+    margin-left: $size-value;
+    margin-right: $size-value;
+  }
+  .m-y-#{$size-name}{
+    margin-top: $size-value;
+    margin-bottom: $size-value;
+  }
+}
+
+@include a.xxs{
+  @each $size-name,$size-value in a.$space-semantics{
+    @each $direction in a.$directions{
+      .m-#{$direction}-#{$size-name}-xxs{
+        margin-#{$direction}: $size-value;
+      }
+    }
+    .m-x-#{$size-name}-xxs{
+      margin-left: $size-value;
+      margin-right: $size-value;
+    }
+    .m-y-#{$size-name}-xxs{
+      margin-top: $size-value;
+      margin-bottom: $size-value;
+    }
+  }
+}
+@include a.xs{
+  @each $size-name,$size-value in a.$space-semantics{
+    @each $direction in a.$directions{
+      .m-#{$direction}-#{$size-name}-xs{
+        margin-#{$direction}: $size-value;
+      }
+    }
+    .m-x-#{$size-name}-xs{
+      margin-left: $size-value;
+      margin-right: $size-value;
+    }
+    .m-y-#{$size-name}-xs{
+      margin-top: $size-value;
+      margin-bottom: $size-value;
+    }
+  }
+}
+@include a.sm{
+  @each $size-name,$size-value in a.$space-semantics{
+    @each $direction in a.$directions{
+      .m-#{$direction}-#{$size-name}-sm{
+        margin-#{$direction}: $size-value;
+      }
+    }
+    .m-x-#{$size-name}-sm{
+      margin-left: $size-value;
+      margin-right: $size-value;
+    }
+    .m-y-#{$size-name}-sm{
+      margin-top: $size-value;
+      margin-bottom: $size-value;
+    }
+  }
+}
+@include a.md{
+  @each $size-name,$size-value in a.$space-semantics{
+    @each $direction in a.$directions{
+      .m-#{$direction}-#{$size-name}-md{
+        margin-#{$direction}: $size-value;
+      }
+    }
+    .m-x-#{$size-name}-md{
+      margin-left: $size-value;
+      margin-right: $size-value;
+    }
+    .m-y-#{$size-name}-md{
+      margin-top: $size-value;
+      margin-bottom: $size-value;
+    }
+  }
+}
+@include a.lg{
+  @each $size-name,$size-value in a.$space-semantics{
+    @each $direction in a.$directions{
+      .m-#{$direction}-#{$size-name}-lg{
+        margin-#{$direction}: $size-value;
+      }
+    }
+    .m-x-#{$size-name}-lg{
+      margin-left: $size-value;
+      margin-right: $size-value;
+    }
+    .m-y-#{$size-name}-lg{
+      margin-top: $size-value;
+      margin-bottom: $size-value;
+    }
+  }
+}
+@include a.xl{
+  @each $size-name,$size-value in a.$space-semantics{
+    @each $direction in a.$directions{
+      .m-#{$direction}-#{$size-name}-xl{
+        margin-#{$direction}: $size-value;
+      }
+    }
+    .m-x-#{$size-name}-xl{
+      margin-left: $size-value;
+      margin-right: $size-value;
+    }
+    .m-y-#{$size-name}-xl{
+      margin-top: $size-value;
+      margin-bottom: $size-value;
+    }
+  }
+}

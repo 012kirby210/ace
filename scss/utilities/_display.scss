@@ -1,0 +1,19 @@
+@use './../abstracts' as a;
+
+@each $bp-name-selector, $bp-value-selector in a.$breakpoints {
+  @each $bp-name-specification, $bp-value-specification in a.$breakpoints {
+    @each $display-type in a.$display-types {
+      @if ($display-type != 'none'){
+        .display-#{$display-type}-#{$bp-name-selector} {
+          @media screen and (min-width: $bp-value-specification){
+            @if ($bp-name-selector == $bp-name-specification){
+              display: $display-type;
+            }@else{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

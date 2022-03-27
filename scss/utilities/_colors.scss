@@ -1,0 +1,30 @@
+@use './../abstracts' as a;
+
+@use 'sass:color';
+
+@each $key,$value in a.$colors{
+  .text-color-#{$key}{
+    color: $value;
+  }
+  .bg-#{$key}{
+    background-color: $value;
+  }
+
+  @if ($key != 'white' and $key != 'black'){
+    @for $i from 1 through 9{
+      .text-color-#{$key}-light-#{$i}{
+        color: color.mix(#FFFFFF,$value,$i*10%);
+      }
+      .bg-#{$key}-light-#{$i}{
+        background-color: color.mix(#FFFFFF,$value,$i*10%);
+      }
+
+      .text-color-#{$key}-dark-#{$i}{
+        color: color.mix(#000000,$value,$i*10%);
+      }
+      .bg-#{$key}-dark-#{$i}{
+        background-color: color.mix(#000000,$value,$i*10%);
+      }
+    }
+  }
+}

@@ -1,17 +1,70 @@
 @use 'functions' as f;
 @use 'variables' as v;
+@use 'sass:color';
+@use 'sass:math';
 
 @mixin button($parameters:v.$button-parameters) {
-  //@each $property,$value in $parameters{
-  //  #{$property}: $value;
-  //}
+  display: inline-block;
+  border-radius: math.div(f.retrieve($parameters,'space-metric'),2);
   font-family: f.retrieve($parameters,'font-family');
   font-size: f.retrieve($parameters,'font-size');
   color: f.retrieve($parameters,'color');
   background-color: f.retrieve($parameters,'background-color');
+  cursor: pointer;
+  &:hover{
+    background-color: color.mix(white,f.retrieve($parameters,'background-color'),10%);
+  }
   @each $direction in v.$directions{
     padding-#{$direction}: f.retrieve($parameters,'padding-'#{$direction});
     margin-#{$direction}: f.retrieve($parameters,'margin-'#{$direction});
   }
   @content;
+}
+
+@mixin padding-ratio($ratio-values: (1.777,1),$metric:20px){
+  @each $x,$y in $ratio-values{
+    padding: $metric math.div($metric,1.777);
+  }
+}
+
+@mixin margin-ratio($ratio-values: (1.777,1),$metric:20px){
+  @each $x,$y in $ratio-values{
+    padding: $metric math.div($metric,1.777);
+  }
+}
+
+@mixin xxs{
+  @media screen and (min-width: f.retrieve(v.$breakpoints, 'xxs')){
+    @content;
+  }
+}
+@mixin xs{
+  @media screen and (min-width: f.retrieve(v.$breakpoints, 'xs')){
+    @content;
+  }
+}
+@mixin sm{
+  @media screen and (min-width: f.retrieve(v.$breakpoints, 'sm')){
+    @content;
+  }
+}
+@mixin md{
+  @media screen and (min-width: f.retrieve(v.$breakpoints, 'md')){
+    @content;
+  }
+}
+@mixin lg{
+  @media screen and (min-width: f.retrieve(v.$breakpoints, 'lg')){
+    @content;
+  }
+}
+@mixin xl{
+  @media screen and (min-width: f.retrieve(v.$breakpoints, 'xl')){
+    @content;
+  }
+}
+@mixin breakpoint($bp:0){
+  @media screen and (min-width: $bp){
+    @content;
+  }
 }

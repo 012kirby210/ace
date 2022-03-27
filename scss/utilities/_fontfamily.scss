@@ -1,0 +1,7 @@
+@use '../abstracts' as a;
+
+@each $font-key-name, $font-family-value in a.$font-families{
+  .text-family-#{$font-key-name}{
+    font-family: $font-family-value;
+  }
+}

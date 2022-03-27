@@ -1,0 +1,151 @@
+@use '../abstracts' as a;
+@use '../abstracts/mixins';
+
+@use 'sass:math';
+
+$-grid-columns-nb: 12;
+$-space-metric: 20px;
+
+.container-grid{
+  width: 100%;
+  max-width: a.$max-width;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+.row{
+  display: flex;
+  flex-flow: row wrap;
+}
+@include a.xxs{
+  @for $i from 1 through $-grid-columns-nb{
+    .col-#{$i}-xxs{
+      flex:0 0 auto;
+      width: math.div($i*100%,$-grid-columns-nb);
+    }
+  }
+  @each $gap-name, $gap-value in a.$grid-gaps{
+    .grid-gap-#{$gap-name}-xxs{
+      & > *{
+        padding: $gap-value;
+      }
+      margin-left: -$gap-value;
+      margin-right: -$gap-value;
+    }
+  }
+  @each $layout-name in a.$grid-layout{
+    .justify-#{$layout-name}-xxs{
+      justify-content: $layout-name;
+    }
+  }
+}
+@include a.xs{
+  @for $i from 1 through $-grid-columns-nb{
+    .col-#{$i}-xs{
+      flex:0 0 auto;
+      width: math.div($i*100%,$-grid-columns-nb);
+    }
+  }
+  @each $gap-name, $gap-value in a.$grid-gaps{
+    .grid-gap-#{$gap-name}-xs{
+      & > *{
+        padding: $gap-value;
+      }
+      margin-left: -$gap-value;
+      margin-right: -$gap-value;
+    }
+  }
+  @each $layout-name in a.$grid-layout{
+    .justify-#{$layout-name}-xs{
+      justify-content: $layout-name;
+    }
+  }
+}
+@include a.sm{
+  @for $i from 1 through $-grid-columns-nb{
+    .col-#{$i}-sm{
+      flex:0 0 auto;
+      width: math.div($i*100%,$-grid-columns-nb);
+    }
+  }
+  @each $gap-name, $gap-value in a.$grid-gaps{
+    .grid-gap-#{$gap-name}-sm{
+      & > *{
+        padding: $gap-value;
+      }
+      margin-left: -$gap-value;
+      margin-right: -$gap-value;
+    }
+  }
+  @each $layout-name in a.$grid-layout{
+    .justify-#{$layout-name}-sm{
+      justify-content: $layout-name;
+    }
+  }
+}
+@include a.md{
+  @for $i from 1 through $-grid-columns-nb{
+    .col-#{$i}-md{
+      flex:0 0 auto;
+      width: math.div($i*100%,$-grid-columns-nb);
+    }
+  }
+  @each $gap-name, $gap-value in a.$grid-gaps{
+    .grid-gap-#{$gap-name}-md{
+      & > *{
+        padding: $gap-value;
+      }
+      margin-left: -$gap-value;
+      margin-right: -$gap-value;
+    }
+  }
+  @each $layout-name in a.$grid-layout{
+    .justify-#{$layout-name}-md{
+      justify-content: $layout-name;
+    }
+  }
+}
+@include a.lg{
+  @for $i from 1 through $-grid-columns-nb{
+    .col-#{$i}-lg{
+      flex:0 0 auto;
+      width: math.div($i*100%,$-grid-columns-nb);
+    }
+  }
+  @each $gap-name, $gap-value in a.$grid-gaps{
+    .grid-gap-#{$gap-name}-md{
+      & > *{
+        padding: $gap-value;
+      }
+      margin-left: -$gap-value;
+      margin-right: -$gap-value;
+    }
+  }
+  @each $layout-name in a.$grid-layout{
+    .justify-#{$layout-name}-lg{
+      justify-content: $layout-name;
+    }
+  }
+}
+@include a.xl{
+  @for $i from 1 through $-grid-columns-nb{
+    .col-#{$i}-xl{
+      flex:0 0 auto;
+      width: math.div($i*100%,$-grid-columns-nb);
+    }
+  }
+  @each $gap-name, $gap-value in a.$grid-gaps{
+    .grid-gap-#{$gap-name}-xl{
+      & > *{
+        padding: $gap-value;
+      }
+      margin-left: -$gap-value;
+      margin-right: -$gap-value;
+    }
+  }
+  @each $layout-name in a.$grid-layout{
+    .justify-#{$layout-name}-xl{
+      justify-content: $layout-name;
+    }
+  }
+}

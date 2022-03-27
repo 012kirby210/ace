@@ -1,22 +1,111 @@
 @use 'sass:map';
+@use 'sass:math';
 
 $-button-space-metric: 20px;
 
+$max-width: 1600px;
+
+$colors:(
+  'red': #FF1966,
+  'blue': #3191E8,
+  'green': #78FF66,
+  'yellow': #F5B01B,
+  'purple': #FF5CFF,
+
+  'primary': #506AB3,
+  'accent': #FFD66A,
+  'error': #FF633A,
+  'success': #05B37A,
+  'info': #4DB2DC,
+  'white': #FFFFFF,
+  'black': #000000
+);
+
+$breakpoints:(
+  'xxs': 0,
+  'xs': 320px,
+  'sm': 480px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1240px
+);
+
+$grid-gaps: (
+  '0': 0,
+  'xxs': 1px,
+  'xs': 4px,
+  'sm': 8px,
+  'md': 16px,
+  'lg': 20px,
+  'xl': 24px
+);
+
+$grid-layout: flex-start, center, flex-end, space-around, space-evenly, space-between;
+
+$display-types: block, inline-block, inline, flex, grid, none, table;
+
+$ratios: (
+  'academic': (1.375,1),
+  'cinemascope': (2.39,1),
+  'techniscope': (2.35,1),
+  'panoramique': (1.85,1),
+  'TV': (1.333,1),
+  '16-9': (1.777,1),
+  '16-10': (1.6,1)
+);
 $directions: ('top','right','bottom','left');
+
+$space-semantics: (
+    '3xs': 6px,
+    '2xs': 9px,
+    'xs': 12px,
+    'sm': 14px,
+    'md': 16px,
+    'lg': 18px,
+    'xl': 20px,
+    '2xl': 30px,
+    '3xl': 40px
+  );
+
+$font-sizes: (
+  '3xs': 6px,
+  '2xs': 9px,
+  'xs': 12px,
+  'sm': 14px,
+  'md': 16px,
+  'lg': 18px,
+  'xl': 20px,
+  '2xl': 30px,
+  '3xl': 40px
+);
+
+$font-families: (
+  'primary': 'tommy-regular',
+  'primary-bold': 'tommy-bold',
+  'primary-light': 'tommy-light'
+);
 
 $button-parameters: (
   'font-family': sans-serif,
   'font-size': inherit,
   'color': black,
   'background-color': white,
+  'space-metric': $-button-space-metric,
 );
+
 @each $direction in $directions{
+  $-applied-space: $-button-space-metric;
+  @if ($direction == 'top' or $direction == 'bottom'){
+    $-applied-space: math.div($-button-space-metric,2);
+  }
   $button-parameters: map.set($button-parameters,
     'padding-'#{$direction},
-    $-button-space-metric
+    $-applied-space
   );
   $button-parameters: map.set($button-parameters,
     'margin-'#{$direction},
-    $-button-space-metric
+    $-applied-space
   );
 }
+
+

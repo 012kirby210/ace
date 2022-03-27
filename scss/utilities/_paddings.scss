@@ -1,0 +1,25 @@
+@use '../abstracts' as a;
+
+$-space-metric: 20px;
+
+@each $name,$values in a.$ratios{
+  .padding-#{$name}{
+    @include a.padding-ratio($values,$-space-metric);
+  }
+}
+
+@each $size-name,$size-value in a.$space-semantics{
+  @each $direction in a.$directions{
+    .p-#{$direction}-#{$size-name}{
+      padding-#{$direction}: $size-value;
+    }
+  }
+  .p-x-#{$size-name}{
+    padding-left: $size-value;
+    padding-right: $size-value;
+  }
+  .p-y-#{$size-name}{
+    padding-top: $size-value;
+    padding-bottom: $size-value;
+  }
+}

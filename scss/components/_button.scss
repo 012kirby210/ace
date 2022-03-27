@@ -1,4 +1,7 @@
 @use '../abstracts/mixins';
+@use '../abstracts';
+
+@use 'sass:color';
 
 .button{
   @include mixins.button(){
@@ -8,3 +11,37 @@
     color: white;
   }
 }
+
+@each $key, $val in abstracts.$colors {
+  @each $ratio, $coords in abstracts.$ratios{
+
+  }
+  .button-#{$key}{
+    @include mixins.button(){
+      background-color: $val;
+      color: white;
+      &:hover{
+        background-color: color.mix(white,$val,50%);
+        color: color.mix(black,$val,50%);
+      }
+    }
+  }
+  .button-#{$key}-outlined{
+    @include mixins.button(){
+      background-color: white;
+      color: $val;
+      border-color: $val;
+      border-width: 1px;
+      border-style: solid;
+      transition: box-shadow 100ms ease-in-out;
+      &:hover{
+        box-shadow:   0 0 50px 1px white, 0 0 6px 1px $val;
+      }
+    }
+  }
+}
+
+// 5816 1ok, 1nok 5
+// 3826 2 nok
+// 1983 2 nok 9
+// 1427 1 ok 7 4
